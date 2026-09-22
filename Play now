@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIKKI Scooter Game</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#111;
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+
+h1{
+  padding:12px 5px;
+  background:#222;
+  color:#00e5ff;
+  font-size:25px;
+}
+
+#game{
+  position:relative;
+  width:100%;
+  max-width:430px;
+  height:75vh;
+  min-height:500px;
+  margin:auto;
+  overflow:hidden;
+  background:#555;
+  border-left:5px solid #333;
+  border-right:5px solid #333;
+}
+
+.road{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      #555 0px,
+      #555 45px,
+      #666 45px,
+      #666 90px
+    );
+}
+
+.line{
+  position:absolute;
+  width:8px;
+  height:70px;
+  background:white;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+#player{
+  position:absolute;
+  bottom:35px;
+  left:50%;
+  transform:translateX(-50%);
+  width:65px;
+  height:100px;
+  z-index:5;
+}
+
+.scooter{
+  width:30px;
+  height:75px;
+  background:#00d9ff;
+  border-radius:15px;
+  margin:auto;
+  position:relative;
+  box-shadow:0 0 12px #00e5ff;
+}
+
+.scooter:before,
+.scooter:after{
+  content:"";
+  position:absolute;
+  width:18px;
+  height:18px;
+  background:#111;
+  border-radius:50%;
+  left:6px;
+}
+
+.scooter:before{top:-8px;}
+.scooter:after{bottom:-8px;}
+
+.handle{
+  position:absolute;
+  width:48px;
+  height:6px;
+  background:#222;
+  top:5px;
+  left:-9px;
+  border-radius:5px;
+}
+
+#enemy{
+  position:absolute;
+  top:-120px;
+  left:50%;
+  transform:translateX(-50%);
+  width:55px;
+  height:90px;
+  z-index:4;
+}
+
+.enemyBody{
+  width:35px;
+  height:70px;
+  background:#ff3030;
+  border-radius:12px;
+  margin:auto;
+  box-shadow:0 0 10px red;
+}
+
+.enemyBody:before,
+.enemyBody:after{
+  content:"";
+  position:absolute;
+  width:18px;
+  height:18px;
+  background:#111;
+  border-radius:50%;
+  left:18px;
+}
+
+.enemyBody:before{top:-7px;}
+.enemyBody:after{bottom:-7px;}
+
+#score{
+  position:absolute;
+  top:10px;
+  left:10px;
+  z-index:10;
+  background:#000b;
+  padding:8px 12px;
+  border-radius:10px;
+  font-size:18px;
+}
+
+#nameTag{
+  position:absolute;
+  bottom:5px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:10;
+  background:#000c;
+  padding:5px 12px;
+  border-radius:15px;
+  font-weight:bold;
+  color:#00e5ff;
+}
+
+.controls{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  padding:
